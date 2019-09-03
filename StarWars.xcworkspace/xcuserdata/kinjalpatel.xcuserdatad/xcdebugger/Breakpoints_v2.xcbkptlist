@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StarWars/Controller/CategoryListViewController.swift"
+            timestampString = "589241669.612654"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;StarWars.StarWarsPeopleModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StarWars.CategoryListViewController.fetchData() -&gt; ()"
+                  moduleName = "StarWars"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kinjal/Desktop/StarWars/StarWars/Controller/CategoryListViewController.swift"
+                  timestampString = "589240974.21227"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "824">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (StarWars.PeopleModel) -&gt; StarWars.PeopleViewModel in closure #1 (Swift.Optional&lt;StarWars.StarWarsPeopleModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StarWars.CategoryListViewController.fetchData() -&gt; ()"
+                  moduleName = "StarWars"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kinjal/Desktop/StarWars/StarWars/Controller/CategoryListViewController.swift"
+                  timestampString = "589240974.214474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
