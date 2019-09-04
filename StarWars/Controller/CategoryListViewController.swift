@@ -44,13 +44,14 @@ class CategoryListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        categoryListTableView.frame = CGRect(x: categoryListTableView.frame.origin.x, y: categoryListTableView.frame.origin.y, width: categoryListTableView.frame.size.width, height: categoryListTableView.contentSize.height)
-        categoryListTableView.reloadData()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        categoryListTableView.frame = CGRect(x: categoryListTableView.frame.origin.x, y: categoryListTableView.frame.origin.y, width: categoryListTableView.frame.size.width, height: categoryListTableView.contentSize.height)
+//        categoryListTableView.reloadData()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryListTableView.frame = self.view.bounds
         fetchData()
         navigationItem.title = categoryString.capitalized
     }
