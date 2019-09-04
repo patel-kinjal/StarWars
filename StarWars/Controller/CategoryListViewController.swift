@@ -32,6 +32,8 @@ class CategoryListViewController: UIViewController {
     
     var peopleModels = [PeopleViewModel]()
     var categoryString = ""
+    var count = 0
+    var urlString = "https://swapi.co/api/people"
     
     init(category: String) {
         self.categoryString = category
@@ -49,25 +51,34 @@ class CategoryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // fetchData()
+        fetchData()
         navigationItem.title = categoryString.capitalized
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchData()
     }
     
     func fetchData() {
         
-        Service.shared.fetchPeople { (people, err) in
+        Service.shared.fetchPeople(urlString: urlString) { (people, err) in
+            
             if let err = err {
                 print("Failed to fetch courses:", err)
                 return
             }
             
+            if let nextURLString = people?.next {
+                self.urlString = nextURLString
+            }
+            
             if let peopleArray = people?.results {
-                self.peopleModels = peopleArray.map({return PeopleViewModel(people: $0)})
+                
+                self.count += peopleArray.count
+                
+                self.peopleModels.append(contentsOf: peopleArray.map({return PeopleViewModel(people: $0)}))
+                //self.peopleModels = peopleArray.map({return PeopleViewModel(people: $0)})
+                print(" Count :  \(self.count)       ArrayCount : \(self.peopleModels.count)")
                 self.categoryListTableView.reloadData()
             }
         }
@@ -85,6 +96,12 @@ extension CategoryListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 63
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == count - 3 {
+            fetchData()
+        }
     }
 }
 

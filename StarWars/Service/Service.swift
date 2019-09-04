@@ -44,11 +44,8 @@ class Service: NSObject {
 //        task.resume()
 //    }
     
-    
-    
-    func fetchPeople(completion: @escaping (StarWarsPeopleModel?, Error?) -> ()) {
+    func fetchPeople(urlString: String, completion: @escaping (StarWarsPeopleModel?, Error?) -> ()) {
         
-        let urlString = "https://swapi.co/api/people"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
@@ -62,13 +59,14 @@ class Service: NSObject {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let courses = try decoder.decode(StarWarsPeopleModel.self, from: data)
+                let peoples = try decoder.decode(StarWarsPeopleModel.self, from: data)
                 DispatchQueue.main.async {
-                    completion(courses, nil)
+                    completion(peoples, nil)
                 }
             } catch let jsonErr {
                 print("Failed to decode:", jsonErr)
             }
             }.resume()
     }
+
 }
