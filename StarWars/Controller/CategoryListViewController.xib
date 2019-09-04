@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryListViewController" customModule="StarWars" customModuleProvider="target">
             <connections>
                 <outlet property="categoryListTableView" destination="L9o-yj-4gX" id="ZXG-X1-Qng"/>
+                <outlet property="loaderIndicatorView" destination="al3-du-sUX" id="b4E-V0-nVt"/>
                 <outlet property="tableViewHeightConstraints" destination="L9o-yj-4gX" id="1a1-Eg-bv7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -44,12 +45,17 @@
                     <rect key="frame" x="0.0" y="52" width="375" height="615"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="al3-du-sUX">
+                    <rect key="frame" x="177.5" y="349.5" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="il7-1b-xm1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Qt-KV-2Yq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L9o-yj-4gX" secondAttribute="trailing" id="4a1-7p-mS2"/>
                 <constraint firstItem="L9o-yj-4gX" firstAttribute="top" secondItem="il7-1b-xm1" secondAttribute="bottom" id="A2U-KY-D7P"/>
+                <constraint firstItem="al3-du-sUX" firstAttribute="centerX" secondItem="L9o-yj-4gX" secondAttribute="centerX" id="CGp-4U-qZ3"/>
+                <constraint firstItem="al3-du-sUX" firstAttribute="centerY" secondItem="L9o-yj-4gX" secondAttribute="centerY" id="Sg7-LF-cG8"/>
                 <constraint firstItem="L9o-yj-4gX" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="i75-gF-t2a"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="il7-1b-xm1" secondAttribute="trailing" id="oxV-wY-sWE"/>
                 <constraint firstItem="il7-1b-xm1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vjJ-FW-16B"/>

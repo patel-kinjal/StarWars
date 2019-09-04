@@ -30,6 +30,13 @@ class CategoryListViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var loaderIndicatorView: UIActivityIndicatorView! {
+        didSet {
+            loaderIndicatorView.stopAnimating()
+            loaderIndicatorView.isHidden = true
+        }
+    }
+    
     var peopleModels = [PeopleViewModel]()
     var categoryString = ""
     var count = 0
@@ -62,7 +69,13 @@ class CategoryListViewController: UIViewController {
     
     func fetchData() {
         
+        loaderIndicatorView.startAnimating()
+        loaderIndicatorView.isHidden = false
+
         Service.shared.fetchPeople(urlString: urlString) { (people, err) in
+            
+            self.loaderIndicatorView.stopAnimating()
+            self.loaderIndicatorView.isHidden = true
             
             if let err = err {
                 print("Failed to fetch courses:", err)
@@ -76,10 +89,8 @@ class CategoryListViewController: UIViewController {
             if let peopleArray = people?.results {
                 
                 self.count += peopleArray.count
-                
                 self.peopleModels.append(contentsOf: peopleArray.map({return PeopleViewModel(people: $0)}))
                 //self.peopleModels = peopleArray.map({return PeopleViewModel(people: $0)})
-                print(" Count :  \(self.count)       ArrayCount : \(self.peopleModels.count)")
                 self.categoryListTableView.reloadData()
             }
         }
